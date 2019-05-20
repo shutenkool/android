@@ -156,7 +156,7 @@ public class ArbitraryDataProvider {
      * @return string if value found or empty string
      */
     public String getValue(Account account, String key) {
-        return getValue(account.name, key);
+        return account != null ? getValue(account.name, key) : null;
     }
 
     public String getValue(String accountName, String key) {
