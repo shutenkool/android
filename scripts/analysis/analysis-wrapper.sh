@@ -124,6 +124,7 @@ else
     fi
 
     if ( [ $ktlintValue -eq 1 ] ) ; then
+        sed -i ':a;N;$!ba;s#\n#<br />#g;s#^<br />##g' build/ktlint.txt
         curl -u $4:$5 -X PUT https://nextcloud.kaminsky.me/remote.php/webdav/android-ktlint/$6.html --upload-file build/ktlint.txt
         ktlintMessage="<h1>Kotlin lint found errors</h1><a href='https://www.kaminsky.me/nc-dev/android-ktlint/$6.html'>Lint</a>"
     fi
