@@ -124,7 +124,8 @@ else
     fi
 
     if ( [ $ktlintValue -eq 1 ] ) ; then
-       ktlintMessage="<h1>Kotlin lint found errors!</h1><br><br>$(cat build/ktlint.xml)<br><br>"
+        curl -u $4:$5 -X PUT https://nextcloud.kaminsky.me/remote.php/webdav/android-ktlint/$6.html --upload-file build/ktlint.txt
+        ktlintMessage="<h1>Kotlin lint found errors</h1><a href='https://www.kaminsky.me/nc-dev/android-ktlint/$6.html'>Lint</a>"
     fi
 
     # check gplay limitation: all changelog files must only have 500 chars
